@@ -1,0 +1,30 @@
+{
+  "name": "microservice-artifact-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isalazarw/microservice-artifact-nodejs.git"
+  },
+  "keywords": [
+    "microservice"
+  ],
+  "author": "Ignacio Salazar Williams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isalazarw/microservice-artifact-nodejs/issues"
+  },
+  "homepage": "https://github.com/isalazarw/microservice-artifact-nodejs#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
