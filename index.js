@@ -19,7 +19,7 @@ fs.readdir(controllerBasePath, (err, files) => {
         let METHOD = undefined;
         let VERSION = undefined;
         fileName = file.split('.')[0]; // Se hace split del .js para hacer refencia al nombre del archivo
-        API = require(`${controllerBasePath}/${file}`).API;
+        API = require(`${controllerBasePath}/${fileName}`).API;
         console.log('\n--- Setting UP < Endpoints ---')
 
         for(let i=0; i<API.length; i++){ // Armado de Endpoints Dinamicamente
@@ -27,7 +27,7 @@ fs.readdir(controllerBasePath, (err, files) => {
             VERSION = API[i].config.VERSION;
             switch(METHOD){
                 case "GET":
-                    app.get(`/${basepath}/v${VERSION}/${fileName}}`, API[i].method); 
+                    app.get(`/${basepath}/v${VERSION}/${fileName}`, API[i].method); 
                     console.log(`GET - http://localhost:${port}/${basepath}/v${VERSION}/${fileName}`)
                     break;
                 case "POST":
