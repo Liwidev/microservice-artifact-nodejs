@@ -12,6 +12,8 @@
 * Captura de errores
 * Modulo Kafka (Event-driven-communication)
 * Yeoman - Generador de arquetipos
+* TDD - Test driven development
+* DDD
 
 ## Estructura de URL
 Ejemplo extraido desde [aquí](https://www.sqlitetutorial.net/sqlite-sample-database/)
