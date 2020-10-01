@@ -1,39 +1,33 @@
+const { getEmployees, postEmployees, putEmployees, deleteEmployees  } = require('../service/employees');
+
 const API = [
     {
         config: {
             METHOD: "GET",
             VERSION: 1
         },
-        method: (req, res) => {
-            res.send('GET Customer');
-        }
+        method: getEmployees
     },
     {
         config: {
             METHOD: "POST",
             VERSION: 1
         },
-        method: (req, res) => {
-            res.send('Create Customer');
-        }
+        method: postEmployees
     },
     {
         config: {
             METHOD: "PUT",
             VERSION: 1
         },
-        method: (req, res) => {
-            res.send('UPDATE Customer');
-        }
+        method: putEmployees
     },
     {
         config: {
             METHOD: "DELETE",
             VERSION: 1
         },
-        method: (req, res) => {
-            res.send('DELETE Customer');
-        }
+        method: deleteEmployees
     }
 ];
 

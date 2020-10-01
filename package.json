@@ -25,6 +25,9 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "express-swagger-generator": "^1.1.17",
+    "nodemon": "^2.0.4",
+    "swagger-jsdoc": "^4.2.0",
+    "swagger-ui-express": "^4.1.4"
   }
 }
