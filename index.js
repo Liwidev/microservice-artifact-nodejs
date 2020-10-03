@@ -38,7 +38,7 @@ let options = {
 };
 
 console.log('Servidor NodeJS - Setting UP Config');
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 fs.readdir(controllerBasePath, (err, files) => {
     let API = undefined;

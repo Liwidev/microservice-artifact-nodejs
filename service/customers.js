@@ -1,3 +1,5 @@
+const { mongoClient, findAll } = require('../modules/mongodb');
+const dbName = 'msartifact';
 /**
  * This function comment is parsed by doctrine
  * @route GET /v1/customers
@@ -6,8 +8,17 @@
  * @returns {Error}  default - Unexpected error
  */
 
-exports.getCustomers = (req, res) => {
-    res.send('GET Custome con nueva forma de exportar');
+exports.getCustomers = async (req, res) => {
+    try{
+        const client = await mongoClient();
+        const db = client.db(dbName);
+        const collection = db.collection('documents');
+        const result = await findAll(collection);
+        client.close();
+        res.send(result);
+    }catch(err){
+        res.send('ERROR');
+    }
 }
 
 /**
@@ -18,8 +29,22 @@ exports.getCustomers = (req, res) => {
  * @returns {Error}  default - Unexpected error
  */
 
-exports.postCustomers = (req, res) => {
-    res.send('POST Customer con nuevo metodo');
+exports.postCustomers = async (req, res) => {
+    try{
+        const client = await mongoClient();
+        const db = client.db(dbName);
+        const collection = db.collection('documents');
+        const example = {
+            id: Math.floor(Math.random() * 10),
+            txt: "Esto es un ejemplo"
+        }
+        collection.insertOne(example);
+        client.close();
+        res.send(example);
+    }catch(err){
+        res.send('ERROR');
+    }
+    
 }
 
 /**
