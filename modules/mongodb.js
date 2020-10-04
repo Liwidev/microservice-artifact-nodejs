@@ -11,9 +11,7 @@ exports.mongoClient = () => {
                 return reject(err);
             }
         });
-    })
-    
-
+    });
 }
     
 exports.findAll = (collection) => {

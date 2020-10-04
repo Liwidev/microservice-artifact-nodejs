@@ -4,8 +4,10 @@
 * Auto generar rutas a partir de estructura de carpetas [OK]
 * Agregar Versionamiento de APIs [OK]
 * Generar documentacion con Swagger [OK]
+* Refactory de Apigee [OK]
+* Conectar a base de datos SQL (MySQL)
+* Conectar a base de datos NoSQL (MongoDB) [OK]
 * Pruebas Unitarias
-* Conectar a base de datos SQL y NoSQL (MongoDB)
 * Pruebas de Performance
 * Modelo de datos
 * Validacion JSON request
@@ -26,3 +28,6 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=AsdQwe@123@Test" -p 1433:41433 --n
 
 Comando de despliegue del MongoDB
 docker run --name mongodb -p 27017:27017 -d mongo:latest
+
+Comando de despliegue del MySQL
+docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=AsdQwe@123@Test -d mysql:latest
