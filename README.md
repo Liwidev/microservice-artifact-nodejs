@@ -5,8 +5,9 @@
 * Agregar Versionamiento de APIs [OK]
 * Generar documentacion con Swagger [OK]
 * Refactory de Apigee [OK]
-* Conectar a base de datos SQL (MySQL)
 * Conectar a base de datos NoSQL (MongoDB) [OK]
+* Update de swagger request body
+* Conectar a base de datos SQL (MySQL)
 * Pruebas Unitarias
 * Pruebas de Performance
 * Modelo de datos
@@ -30,4 +31,4 @@ Comando de despliegue del MongoDB
 docker run --name mongodb -p 27017:27017 -d mongo:latest
 
 Comando de despliegue del MySQL
-docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=AsdQwe@123@Test -d mysql:latest
+docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=AsdQwe@123@Test -p 3306:3306 -d mysql:latest

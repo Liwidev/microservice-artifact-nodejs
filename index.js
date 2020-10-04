@@ -12,6 +12,7 @@ const env = process.env.NODE_ENV || 'development';
     try{
         console.log('Servidor NodeJS - Setting UP Config');
         //Api generator
+        app.use(express.json())
         app = await generateAPI(app);
         console.log('\nServidor NodeJS - Initializating Server...');
         //Modulo de Swagger

@@ -31,12 +31,13 @@ exports.getCustomers = async (req, res) => {
 
 exports.postCustomers = async (req, res) => {
     try{
+        const { number, newText } = req.body;
         const client = await mongoClient();
         const db = client.db(dbName);
         const collection = db.collection('documents');
         const example = {
-            id: Math.floor(Math.random() * 10),
-            txt: "Esto es un ejemplo"
+            id: number,
+            txt: newText
         }
         collection.insertOne(example);
         client.close();
@@ -51,11 +52,23 @@ exports.postCustomers = async (req, res) => {
  * This function comment is parsed by doctrine
  * @route PUT /v1/customers
  * @group Customer - Operaciones relacionadas a los cliente
+ * @typedef Point
+ * @property {integer} number
+ * @property {string} newText
  * @returns {object} 200 - An array of user info
  * @returns {Error}  default - Unexpected error
  */
 
-exports.putCustomers = (req, res) => {
+exports.putCustomers = async (req, res) => {
+    try{
+        const { number, newText } = req.body;
+        const client = await mongoClient();
+        const db = client.db(dbName);
+        const collection = db.collection('documents');
+        collection.updateOne({ id : number }, { $set: { txt : newText } });
+    }catch(err){
+        res.send('ERROR');
+    }
     res.send('PUT Customer con nuevo metodo');
 }
 
@@ -67,6 +80,15 @@ exports.putCustomers = (req, res) => {
  * @returns {Error}  default - Unexpected error
  */
 
-exports.deleteCustomers = (req, res) => {
+exports.deleteCustomers = async (req, res) => {
+    try{
+        const { number } = req.body;
+        const client = await mongoClient();
+        const db = client.db(dbName);
+        const collection = db.collection('documents');
+        collection.deleteOne({ id : number });
+    }catch(err){
+        res.send('ERROR');
+    }
     res.send('DELETE Customer con nuevo metodo');
 }
