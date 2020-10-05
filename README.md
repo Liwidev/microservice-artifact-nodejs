@@ -8,6 +8,9 @@
 * Conectar a base de datos NoSQL (MongoDB) [OK]
 * Update de swagger request body
 * Conectar a base de datos SQL (MySQL)
+* Conectar a base de datos SQL (Postgresql)
+* Healthcheck
+* Cache - Redis
 * Pruebas Unitarias
 * Pruebas de Performance
 * Modelo de datos
@@ -17,6 +20,7 @@
 * Yeoman - Generador de arquetipos
 * TDD - Test driven development
 * DDD
+
 
 ## Estructura de URL
 Ejemplo extraido desde [aquí](https://www.sqlitetutorial.net/sqlite-sample-database/)

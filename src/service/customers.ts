@@ -1,5 +1,7 @@
-const { mongoClient, findAll } = require('../modules/mongodb');
+import { mongoClient, findAll } from '../modules/mongodb';
+import { Product } from '../models/Product';
 const dbName = 'msartifact';
+
 /**
  * This function comment is parsed by doctrine
  * @route GET /v1/customers
@@ -8,35 +10,45 @@ const dbName = 'msartifact';
  * @returns {Error}  default - Unexpected error
  */
 
-exports.getCustomers = async (req, res) => {
+export const getCustomers = async (req:any, res:any) => {
     try{
-        const client = await mongoClient();
+        const client:any = await mongoClient();
         const db = client.db(dbName);
         const collection = db.collection('documents');
         const result = await findAll(collection);
         client.close();
         res.send(result);
     }catch(err){
-        res.send('ERROR');
+        res.send(err);
     }
 }
 
 /**
  * This function comment is parsed by doctrine
  * @route POST /v1/customers
+ * @param {Point.model} point.body.required - the new point
  * @group Customer - Operaciones relacionadas a los cliente
- * @returns {object} 200 - An array of user info
- * @returns {Error}  default - Unexpected error
+ * @param {string} email.query.required - username or email
+ * @param {string} password.query.required - user's password.
+ * @param {enum} status.query.required - Status values that need to be considered for filter - eg: available,pending
+ * @operationId retrieveFooInfo
+ * @produces application/json application/xml
+ * @consumes application/json application/xml
+ * @returns {Response.model} 200 - An array of user info
+ * @returns {Product.model}  default - Unexpected error
+ * @returns {Array.<Point>} Point - Some description for point
+ * @headers {integer} 200.X-Rate-Limit - calls per hour allowed by the user
+ * @headers {string} 200.X-Expires-After -  date in UTC when token expires
  */
 
-exports.postCustomers = async (req, res) => {
+export const postCustomers = async (req:any, res:any) => {
     try{
-        const { number, newText } = req.body;
-        const client = await mongoClient();
+        const { newID, newText } = req.body;
+        const client:any = await mongoClient();
         const db = client.db(dbName);
         const collection = db.collection('documents');
         const example = {
-            id: number,
+            id: newID,
             txt: newText
         }
         collection.insertOne(example);
@@ -45,7 +57,7 @@ exports.postCustomers = async (req, res) => {
     }catch(err){
         res.send('ERROR');
     }
-    
+
 }
 
 /**
@@ -53,19 +65,19 @@ exports.postCustomers = async (req, res) => {
  * @route PUT /v1/customers
  * @group Customer - Operaciones relacionadas a los cliente
  * @typedef Point
- * @property {integer} number
+ * @property {integer} newID
  * @property {string} newText
  * @returns {object} 200 - An array of user info
  * @returns {Error}  default - Unexpected error
  */
 
-exports.putCustomers = async (req, res) => {
+export const putCustomers = async (req:any, res:any) => {
     try{
-        const { number, newText } = req.body;
-        const client = await mongoClient();
+        const { newID, newText } = req.body;
+        const client:any = await mongoClient();
         const db = client.db(dbName);
         const collection = db.collection('documents');
-        collection.updateOne({ id : number }, { $set: { txt : newText } });
+        collection.updateOne({ id : newID }, { $set: { txt : newText } });
     }catch(err){
         res.send('ERROR');
     }
@@ -80,13 +92,13 @@ exports.putCustomers = async (req, res) => {
  * @returns {Error}  default - Unexpected error
  */
 
-exports.deleteCustomers = async (req, res) => {
+export const deleteCustomers = async (req:any, res:any) => {
     try{
-        const { number } = req.body;
-        const client = await mongoClient();
+        const { newID } = req.body;
+        const client:any = await mongoClient();
         const db = client.db(dbName);
         const collection = db.collection('documents');
-        collection.deleteOne({ id : number });
+        collection.deleteOne({ id : newID });
     }catch(err){
         res.send('ERROR');
     }

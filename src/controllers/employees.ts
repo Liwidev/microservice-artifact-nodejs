@@ -1,6 +1,6 @@
-const { getEmployees, postEmployees, putEmployees, deleteEmployees  } = require('../service/employees');
+import { getEmployees, postEmployees, putEmployees, deleteEmployees  } from '../service/employees';
 
-const API = [
+export const API = [
     {
         config: {
             METHOD: "GET",
@@ -29,6 +29,4 @@ const API = [
         },
         method: deleteEmployees
     }
-];
-
-module.exports = { API };
+]
