@@ -2,7 +2,7 @@
 // tslint:disable-next-line: no-var-requires
 const expressSwagger = require('express-swagger-generator');
 
-import { msLogger } from '../modules/logger';
+import { msLogger } from './logger';
 
 const basePath = 'MsArtifact';
 const port = process.env.PORT || 3000;

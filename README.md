@@ -6,14 +6,16 @@
 * Generar documentacion con Swagger [OK]
 * Refactory de Apigee [OK]
 * Conectar a base de datos NoSQL (MongoDB) [OK]
-* Update de swagger request body
+* Migrar a Typescript [OK]
+* Update de swagger request body [OK]
+* Modelo de datos [OK]
+* Logger [OK]
 * Conectar a base de datos SQL (MySQL)
 * Conectar a base de datos SQL (Postgresql)
-* Healthcheck
+* Healthcheck [OK - MongoDB & MS]
 * Cache - Redis
 * Pruebas Unitarias
 * Pruebas de Performance
-* Modelo de datos
 * Validacion JSON request
 * Captura de errores
 * Modulo Kafka (Event-driven-communication)

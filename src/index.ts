@@ -3,6 +3,7 @@ dotenv.config();
 import express from 'express';
 import HTTP from "http";
 import { msLogger } from './modules/logger';
+import { healthCheckAPI } from './modules/healthcheck';
 
 let app:any = express();
 import { generateAPI } from './modules/apiGenerator';
@@ -17,6 +18,8 @@ const env = process.env.NODE_ENV || 'development';
         app = await generateAPI(app);
         // Modulo de Swagger
         env === 'development' ? swaggerUI(app) : msLogger.info("Swagger Production MODE");
+        // Modulo de Healthcheck
+        app = await healthCheckAPI(app);
 
         msLogger.info('Servidor NodeJS - Initializating Server...');
         const server = HTTP.createServer(app);
