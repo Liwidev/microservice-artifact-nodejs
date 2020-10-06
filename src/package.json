@@ -1,1 +1,6 @@
-{ "type": "module" }
+{
+  "type": "module",
+  "devDependencies": {
+    "@types/mysql": "^2.15.15"
+  }
+}

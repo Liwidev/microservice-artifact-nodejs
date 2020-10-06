@@ -1,3 +1,6 @@
+import { msLogger } from '../modules/logger';
+import { mysqlClient } from '../modules/mysql';
+
 /**
  * This function comment is parsed by doctrine
  * @route GET /v1/employees
@@ -6,8 +9,15 @@
  * @returns {Error}  default - Unexpected error
  */
 
-export const getEmployees = (req:any, res:any) => {
-    res.send('GET Employee con nueva forma de exportar');
+export const getEmployees = async (req:any, res:any) => {
+    try{
+        const connection:any = await mysqlClient();
+        const [rows, fields] = await connection.query('SELECT 1 + 1 AS solution');
+        connection.end();
+        res.send({response: rows[0].solution});
+    }catch(err){
+        msLogger.error(err);
+    }
 }
 
 /**

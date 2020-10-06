@@ -1,13 +1,13 @@
 import dotenv from "dotenv";
-dotenv.config();
 import express from 'express';
 import HTTP from "http";
 import { msLogger } from './modules/logger';
 import { healthCheckAPI } from './modules/healthcheck';
-
-let app:any = express();
 import { generateAPI } from './modules/apiGenerator';
 import { swaggerUI } from './modules/swagger';
+
+dotenv.config();
+let app:any = express();
 const port = process.env.PORT || 3000;
 const env = process.env.NODE_ENV || 'development';
 (async () => {

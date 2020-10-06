@@ -1,5 +1,6 @@
 import { mongoClient } from './mongodb';
 import { msLogger } from './logger';
+import { mysqlClient } from '../modules/mysql';
 import os from 'os';
 
 const port = process.env.PORT || 3000;
@@ -10,7 +11,17 @@ const healtcheckMongoDB = async () => {
         client.close();
         return {status: true, err: ""};
     }catch(err){
-        return {status: false, err: ""};
+        return {status: false, err};
+    }
+}
+
+const healtcheckMysql = async () => {
+    try{
+        const connection:any = await mysqlClient();
+        connection.end();
+        return {status: true, err: ""};
+    }catch(err){
+        return {status: false, err};
     }
 }
 
@@ -32,9 +43,20 @@ const healtCheckService = async (req:any, res:any) => {
     // MongoDB Test
     const mongodb = await healtcheckMongoDB();
     response.push({
+        serviceName: 'MongoDB',
         status: mongodb.status ? "OK": "NOTOK",
         dbName,
         error: mongodb.err,
+        timestamp: Date.now()
+    });
+
+    // Mysql Test
+    const mysqldb = await healtcheckMysql();
+    response.push({
+        serviceName: 'Mysql',
+        status: mysqldb.status ? "OK": "NOTOK",
+        dbName,
+        error: mysqldb.err,
         timestamp: Date.now()
     });
 
