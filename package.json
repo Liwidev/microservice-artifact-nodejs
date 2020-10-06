@@ -2,10 +2,14 @@
   "name": "microservice-artifact-nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "nodemon index.js"
+    "start-dev": "nodemon src/index.ts",
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node ."
   },
   "repository": {
     "type": "git",
@@ -21,8 +25,11 @@
   },
   "homepage": "https://github.com/isalazarw/microservice-artifact-nodejs#readme",
   "dependencies": {
+    "@types/express": "^4.17.8",
+    "@types/mongodb": "^3.5.27",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "log4js": "^6.3.0",
     "mongodb": "^3.6.2",
     "mysql": "^2.18.1"
   },
@@ -30,6 +37,8 @@
     "express-swagger-generator": "^1.1.17",
     "nodemon": "^2.0.4",
     "swagger-jsdoc": "^4.2.0",
-    "swagger-ui-express": "^4.1.4"
+    "swagger-ui-express": "^4.1.4",
+    "tslint": "^6.1.3",
+    "typescript": "^4.0.3"
   }
 }

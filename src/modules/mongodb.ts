@@ -1,10 +1,14 @@
-const MongoClient = require('mongodb').MongoClient;
+import MongoClient from 'mongodb';
+const MongoClientService = MongoClient.MongoClient;
 const url = 'mongodb://localhost:27017';
 const dbName = 'msartifact';
 
-exports.mongoClient = () => {
+export const mongoClient = () => {
     return new Promise((resolve,reject) => {
-        MongoClient.connect(url, function(err, client) {
+        MongoClientService.connect(url, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+          }, (err:any, client:any) =>{
             if(err == null){
                 return resolve(client);
             }else{
@@ -13,10 +17,9 @@ exports.mongoClient = () => {
         });
     });
 }
-    
-exports.findAll = (collection) => {
+export const findAll = (collection:any) => {
     return new Promise((resolve, reject) => {
-        collection.find({}).toArray(function(err, docs) {
+        collection.find({}).toArray((err:any, docs:any) => {
             if(err == null){
                 return resolve(docs);
             }else{

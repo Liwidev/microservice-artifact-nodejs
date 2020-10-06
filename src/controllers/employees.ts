@@ -1,32 +1,32 @@
-const { getCustomers, postCustomers, deleteCustomers, putCustomers  } = require('../service/customers');
+import { getEmployees, postEmployees, putEmployees, deleteEmployees  } from '../service/employees';
 
-exports.API = [
+export const API = [
     {
         config: {
             METHOD: "GET",
             VERSION: 1
         },
-        method: getCustomers
+        method: getEmployees
     },
     {
         config: {
             METHOD: "POST",
             VERSION: 1
         },
-        method: postCustomers
+        method: postEmployees
     },
     {
         config: {
             METHOD: "PUT",
             VERSION: 1
         },
-        method: putCustomers
+        method: putEmployees
     },
     {
         config: {
             METHOD: "DELETE",
             VERSION: 1
         },
-        method: deleteCustomers
+        method: deleteEmployees
     }
-];
+]
