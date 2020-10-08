@@ -1,9 +1,10 @@
 import mysql from 'mysql2/promise';
 import { msLogger } from '../modules/logger';
+const MYSQL_HOSTNAME=process.env.MYSQL_HOSTNAME || 'localhost';
 
 const dbName = 'msartifact';
 const options = {
-  host     : 'localhost',
+  host     : MYSQL_HOSTNAME,
   user     : 'msuser',
   password : 'AsdQwe@123@Test',
   database : dbName,

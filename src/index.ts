@@ -1,12 +1,12 @@
 import dotenv from "dotenv";
+dotenv.config();
 import express from 'express';
 import HTTP from "http";
 import { msLogger } from './modules/logger';
 import { healthCheckAPI } from './modules/healthcheck';
 import { generateAPI } from './modules/apiGenerator';
 import { swaggerUI } from './modules/swagger';
-
-dotenv.config();
+import os from 'os';
 let app:any = express();
 const port = process.env.PORT || 3000;
 const env = process.env.NODE_ENV || 'development';
@@ -26,6 +26,7 @@ const env = process.env.NODE_ENV || 'development';
         server.listen(port, () => {
             msLogger.info('Servidor NodeJS - UP');
             msLogger.info(`El servidor est en: http://localhost:${port}`);
+            msLogger.info(`Default process.env.MONGODB_HOSTNAME: ${process.env.MONGODB_HOSTNAME}`)
         });
     }catch(err){
         msLogger.error(err);

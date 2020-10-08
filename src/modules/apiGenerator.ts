@@ -3,10 +3,11 @@ import { msLogger } from '../modules/logger';
 const basePath = 'MsArtifact';
 const controllerBasePath = 'controllers';
 const port = process.env.PORT || 3000;
+const FOLDERSTRUCTURE = process.env.NODE_ENV === 'development' ? './src' : '.';
 
 export const generateAPI = (app:any) =>{
     return new Promise((resolve, reject) => {
-        fs.readdir(`./src/${controllerBasePath}`, (err, files) => {
+        fs.readdir(`${FOLDERSTRUCTURE}/${controllerBasePath}`, (err, files) => {
             if(err!=null) reject(err);
             try{
                 let API;

@@ -1,6 +1,7 @@
 import MongoClient from 'mongodb';
 const MongoClientService = MongoClient.MongoClient;
-const url = 'mongodb://localhost:27017';
+const MONGODB_HOSTNAME=process.env.MONGODB_HOSTNAME || 'localhost';
+const url = `mongodb://${MONGODB_HOSTNAME}:27017`;
 const dbName = 'msartifact';
 
 export const mongoClient = () => {

@@ -39,3 +39,11 @@ docker run --name mongodb -p 27017:27017 -d mongo:latest
 Comando de despliegue del MySQL
 docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=AsdQwe@123@Test -p 3306:3306 -d mysql:latest
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'AsdQwe@123@Test'
+
+CREATE USER 'msuser'@'%' IDENTIFIED WITH mysql_native_password BY 'AsdQwe@123@Test';
+GRANT USAGE ON *.* TO 'msuser'@'%';
+ALTER USER 'msuser'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+GRANT ALL PRIVILEGES ON `msuser`.* TO 'msuser'@'%';
+FLUSH PRIVILEGES;
+
+CREATE DATABASE msartifact;
