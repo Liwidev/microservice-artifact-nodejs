@@ -16,7 +16,7 @@ export const getCustomers = async (req:any, res:any) => {
         const db = client.db(dbName);
         const collection = db.collection('documents');
         const result = await findAll(collection);
-        client.close();
+        //client.close();
         res.send(result);
     }catch(err){
         res.send(err);
@@ -52,7 +52,7 @@ export const postCustomers = async (req:any, res:any) => {
             txt: newText
         }
         collection.insertOne(example);
-        client.close();
+        //client.close();
         res.send(example);
     }catch(err){
         res.send('ERROR');

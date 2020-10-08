@@ -1,9 +1,9 @@
 version: "3"
 services:
   msartifact:
-    image: test:latest
+    image: msartifact:latest
     ports:
-      - "3000:3000"
+      - "9000:3000"
   mysql:
     image: mysql:latest
     ports:
