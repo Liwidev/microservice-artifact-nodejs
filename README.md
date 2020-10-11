@@ -47,3 +47,7 @@ GRANT ALL PRIVILEGES ON `msuser`.* TO 'msuser'@'%';
 FLUSH PRIVILEGES;
 
 CREATE DATABASE msartifact;
+
+GRANT ALL 
+ON msartifact.* 
+TO msuser;
