@@ -1,5 +1,9 @@
 import { mongoClient, findAll } from '../modules/mongodb';
+<<<<<<< HEAD:src/service/customers.ts
+import { Product } from '../models/Product';
+=======
 // import { Product } from '../models/Product';
+>>>>>>> origin/master:service/customers.js
 const dbName = 'msartifact';
 
 /**
@@ -16,7 +20,7 @@ export const getCustomers = async (req:any, res:any) => {
         const db = client.db(dbName);
         const collection = db.collection('documents');
         const result = await findAll(collection);
-        client.close();
+        //client.close();
         res.send(result);
     }catch(err){
         res.send(err);
@@ -28,6 +32,12 @@ export const getCustomers = async (req:any, res:any) => {
  * @route POST /v1/customers
  * @param {Point.model} point.body.required - the new point
  * @group Customer - Operaciones relacionadas a los cliente
+<<<<<<< HEAD:src/service/customers.ts
+ * @param {string} email.query.required - username or email
+ * @param {string} password.query.required - user's password.
+ * @param {enum} status.query.required - Status values that need to be considered for filter - eg: available,pending
+=======
+>>>>>>> origin/master:service/customers.js
  * @operationId retrieveFooInfo
  * @produces application/json application/xml
  * @consumes application/json application/xml
@@ -49,7 +59,11 @@ export const postCustomers = async (req:any, res:any) => {
             txt: newText
         }
         collection.insertOne(example);
+<<<<<<< HEAD:src/service/customers.ts
+        //client.close();
+=======
         //client.close(); // TO-DO FIX ASYNC CALL
+>>>>>>> origin/master:service/customers.js
         res.send(example);
     }catch(err){
         res.send('ERROR');

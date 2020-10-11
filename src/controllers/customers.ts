@@ -1,6 +1,6 @@
 import { getCustomers, postCustomers, deleteCustomers, putCustomers  } from '../service/customers';
 
-exports.API = [
+export const API = [
     {
         config: {
             METHOD: "GET",

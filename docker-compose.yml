@@ -1,0 +1,16 @@
+version: "3"
+services:
+  msartifact:
+    image: msartifact:latest
+    ports:
+      - "3000:3000"
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=AsdQwe@123@Test
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"

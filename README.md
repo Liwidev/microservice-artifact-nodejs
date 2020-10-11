@@ -6,17 +6,23 @@
 * Generar documentacion con Swagger [OK]
 * Refactory de Apigee [OK]
 * Conectar a base de datos NoSQL (MongoDB) [OK]
-* Update de swagger request body
+* Migrar a Typescript [OK]
+* Update de swagger request body [OK]
+* Modelo de datos [OK]
+* Logger [OK]
 * Conectar a base de datos SQL (MySQL)
+* Conectar a base de datos SQL (Postgresql)
+* Healthcheck [OK - MongoDB & MS]
+* Cache - Redis
 * Pruebas Unitarias
 * Pruebas de Performance
-* Modelo de datos
 * Validacion JSON request
 * Captura de errores
 * Modulo Kafka (Event-driven-communication)
 * Yeoman - Generador de arquetipos
 * TDD - Test driven development
 * DDD
+
 
 ## Estructura de URL
 Ejemplo extraido desde [aquí](https://www.sqlitetutorial.net/sqlite-sample-database/)
@@ -32,3 +38,12 @@ docker run --name mongodb -p 27017:27017 -d mongo:latest
 
 Comando de despliegue del MySQL
 docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=AsdQwe@123@Test -p 3306:3306 -d mysql:latest
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'AsdQwe@123@Test'
+
+CREATE USER 'msuser'@'%' IDENTIFIED WITH mysql_native_password BY 'AsdQwe@123@Test';
+GRANT USAGE ON *.* TO 'msuser'@'%';
+ALTER USER 'msuser'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+GRANT ALL PRIVILEGES ON `msuser`.* TO 'msuser'@'%';
+FLUSH PRIVILEGES;
+
+CREATE DATABASE msartifact;
