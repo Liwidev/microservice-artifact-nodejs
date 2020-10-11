@@ -15,8 +15,4 @@ export class Product {
         this.name = name,
         this.point = point
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master
