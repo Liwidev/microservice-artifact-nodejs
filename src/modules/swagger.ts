@@ -1,10 +1,8 @@
-
 // tslint:disable-next-line: no-var-requires
 const expressSwagger = require('express-swagger-generator');
 
 import { msLogger } from './logger';
 
-const FILETYPE = process.env.NODE_ENV === 'development' ? 'ts' : 'js';
 const basePath = 'MsArtifact';
 const port = process.env.PORT || 3000;
 const options = {
@@ -31,7 +29,7 @@ const options = {
         }
     },
     basedir: __dirname, // app absolute path
-    files: [`../service/**/*.${FILETYPE}` , `../models/**/*.${FILETYPE}`] // Path to the API handle folder
+    files: ['../service/**/*.ts' , '../models/**/*.ts'] // Path to the API handle folder
 };
 
 export const swaggerUI = (app:any) => {

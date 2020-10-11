@@ -3,7 +3,7 @@ services:
   msartifact:
     image: msartifact:latest
     ports:
-      - "9000:3000"
+      - "3000:3000"
   mysql:
     image: mysql:latest
     ports:

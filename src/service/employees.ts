@@ -1,5 +1,9 @@
 import { msLogger } from '../modules/logger';
+<<<<<<< HEAD:src/service/employees.ts
 import { mysqlClient } from '../modules/mysql';
+=======
+// import { mysqlClient } from '../modules/mysql';
+>>>>>>> origin/master:service/employees.js
 
 /**
  * This function comment is parsed by doctrine
@@ -11,6 +15,7 @@ import { mysqlClient } from '../modules/mysql';
 
 export const getEmployees = async (req:any, res:any) => {
     try{
+<<<<<<< HEAD:src/service/employees.ts
         const connection:any = await mysqlClient();
         const [rows, fields] = await connection.query('SELECT 1 + 1 AS solution');
         connection.end();
@@ -18,6 +23,16 @@ export const getEmployees = async (req:any, res:any) => {
     }catch(err){
         msLogger.error(err);
     }
+=======
+        // const connection:any = await mysqlClient();
+        // const [rows, fields] = await connection.query('SELECT 1 + 1 AS solution');
+        // connection.end();
+        // res.send({response: rows[0].solution});
+    }catch(err){
+        msLogger.error(err);
+    }
+    res.send('GET Employee con nuevo metodo');
+>>>>>>> origin/master:service/employees.js
 }
 
 /**
