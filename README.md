@@ -51,3 +51,5 @@ CREATE DATABASE msartifact;
 GRANT ALL 
 ON msartifact.* 
 TO msuser;
+
+# ESTO ES UN EJEMPLO
