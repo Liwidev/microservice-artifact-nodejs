@@ -16,9 +16,9 @@ export const getCustomers = async (req:any, res:any) => {
         const collection = db.collection('documents');
         const result = await findAll(collection);
         // client.close();
-        res.send(result);
+        res.status(200).send(result);
     }catch(err){
-        res.send(err);
+        res.status(500).send(err);
     }
 }
 
