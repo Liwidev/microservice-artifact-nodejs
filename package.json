@@ -26,13 +26,16 @@
   "homepage": "https://github.com/isalazarw/microservice-artifact-nodejs#readme",
   "dependencies": {
     "@types/express": "^4.17.8",
+    "@types/express-ws": "^3.0.0",
     "@types/mongodb": "^3.5.27",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-swagger-generator": "^1.1.17",
+    "express-ws": "^4.0.0",
     "log4js": "^6.3.0",
     "mongodb": "^3.6.2",
     "mysql2": "^2.2.5",
-    "express-swagger-generator": "^1.1.17"
+    "ws": "^7.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
